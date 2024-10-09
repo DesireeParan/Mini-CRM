@@ -1,9 +1,12 @@
 <?php
 namespace App\Http\Controllers;
 
-use App\Models\Company;
 use App\Http\Requests\StoreCompanyRequest;
 use App\Http\Requests\UpdateCompanyRequest;
+use App\Mail\CompanyCreated;
+use App\Models\Company;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 
 class CompanyController extends Controller
@@ -27,7 +30,10 @@ class CompanyController extends Controller
             $data['logo'] = $request->file('logo')->store('logos', 'public');
         }
 
-        Company::create($data);
+        $company = Company::create($data);
+
+        // Send email notification to the authenticated user
+        Mail::to(Auth::user()->email)->send(new CompanyCreated($company));
 
         return redirect()->route('companies.index')
                          ->with('success', 'Company created successfully.');

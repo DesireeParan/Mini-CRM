@@ -84,6 +84,21 @@ return [
 
     'faker_locale' => env('APP_FAKER_LOCALE', 'en_US'),
 
+      /*
+    |--------------------------------------------------------------------------
+    | Supported Locales
+    |--------------------------------------------------------------------------
+    |
+    | The locales array defines the supported locales for the application.
+    | You can add any locale that you plan to support in your application.
+    |
+    */
+
+    'locales' => [
+        'en' => 'English',
+        'es' => 'Espanyol',
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | Encryption Key

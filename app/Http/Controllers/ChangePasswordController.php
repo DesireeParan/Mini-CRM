@@ -11,7 +11,7 @@ class ChangePasswordController extends Controller
 {
     public function show()
     {
-        return view('admin.settings.change-password');
+        return view('settings.change-password');
     }
 
     public function update(Request $request)

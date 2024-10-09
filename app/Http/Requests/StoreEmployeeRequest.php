@@ -17,7 +17,7 @@ class StoreEmployeeRequest extends FormRequest
             'last_name' => 'required|string|max:255',
             'company_id' => 'required|exists:companies,id',
             'email' => 'required|email|unique:employees,email',
-            'phone' => 'nullable|string|max:15',
+            'phone' => 'nullable|string|unique:employees,phone|max:15',
         ];
     }
 
@@ -36,6 +36,7 @@ class StoreEmployeeRequest extends FormRequest
             'email.email' => 'The email address must be a valid email address.',
             'email.unique' => 'The email address has already been taken.',
             'phone.string' => 'The phone number must be a string.',
+            'phone.unique' => 'The phone number has already been taken.',
             'phone.max' => 'The phone number may not be greater than 15 characters.',
         ];
     }

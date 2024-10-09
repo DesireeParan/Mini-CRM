@@ -318,7 +318,7 @@ return [
         ],
         [
             'text' => 'Dashboard',
-            'url' => 'admin/dashboard',
+            'url' => '/dashboard',
             'icon' => 'fas fa-fw fa-tachometer-alt',
             'can' => 'is-admin',
         ],
@@ -326,58 +326,51 @@ return [
             'text' => 'Dashboard',
             'url' => '/home',
             'icon' => 'fas fa-fw fa-tachometer-alt',
-            'can' => '!is-admin',
+            'can' => 'is-not-admin',
         ],
         [
-            'text' => 'Companies',
+            'text' => 'companies',
             'icon' => 'fas fa-fw fa-building',
+            'url' => 'companies/index',
             'can' => 'is-admin',
-            'submenu' => [
-                [
-                    'text' => 'All',
-                    'url' => 'admin/companies/index',
-                ],
-                [
-                    'text' => 'Create',
-                    'url' => 'admin/companies/create',
-
-                ],
-            ],
         ],
         [
-            'text' => 'Employees',
+            'text' => 'employees',
             'icon' => 'fas fa-fw fa-users',
+            'url' => 'employees/index',
             'can' => 'is-admin',
+        ],
+
+        [
+            'text' => 'language',
+            'icon' => 'flas fa-language',
             'submenu' => [
                 [
-                    'text' => 'All',
-                    'url' => 'admin/employees/index',
+                    'text' => 'English',
+                    'icon' => 'flag-icon flag-icon-us',
+                    'url' => '/lang/en',
                 ],
                 [
-                    'text' => 'Create',
-                    'url' => 'admin/employees/create',
-
-                ],
+                    'text' => 'Español',
+                    'icon' => 'flag-icon flag-icon-es',
+                    'url' => '/lang/es',
+                ]
             ],
         ],
 
-        ['header' => 'account_settings'],
+        [
+            'header' => 'account_settings_key',
+        ],
 
         [
-            'text' => 'profile',
-            'url' => 'admin/settings/profile',
+            'text' => ['profile_key', ['name' => 'User']],
+            'url' => '/settings/profile',
             'icon' => 'fas fa-fw fa-user',
         ],
         [
             'text' => 'change_password',
-            'url' => 'admin/settings/change-password',
+            'url' => '/settings/change-password',
             'icon' => 'fas fa-fw fa-lock',
-        ],
-
-        [
-            'text' => 'Logout',
-            'url' => '/auth/logout',
-            'icon' => 'fas fa-fw fa-sign-out-alt',
         ],
 
        /*['header' => 'labels'],
